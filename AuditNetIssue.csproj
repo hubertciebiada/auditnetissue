@@ -8,9 +8,7 @@
     </PropertyGroup>
 
     <ItemGroup>
-        <PackageReference Include="Audit.NET" Version="25.0.3" />
-        <PackageReference Include="Audit.NET.Elasticsearch" Version="25.0.3" />
-        <PackageReference Include="Audit.WebApi" Version="25.0.3" />
+        <PackageReference Include="Audit.NET.Elasticsearch" Version="22.1.0" />
         <PackageReference Include="Audit.WebApi.Core" Version="25.0.3" />
         <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="8.0.3" />
         <PackageReference Include="Swashbuckle.AspNetCore" Version="6.5.0" />

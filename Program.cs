@@ -1,5 +1,5 @@
 using Audit.Core;
-using Audit.WebApi;
+using AuditNetIssue.MyAudit;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -10,7 +10,7 @@ builder.Services.AddSwaggerGen();
 Configuration.Setup()
     .UseElasticsearch(config => config
         .ConnectionSettings(new Uri("my ES addres"))
-        .Index("my_index")
+        .Index(_ => "my_index")
         .Id(_ => Guid.NewGuid()));
 
 var app = builder.Build();
@@ -20,11 +20,7 @@ if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
     app.UseSwaggerUI();
-    app.UseAuditMiddleware(x => x
-        .IncludeHeaders()
-        .IncludeRequestBody()
-        .IncludeResponseHeaders()
-        .IncludeResponseBody());
+    app.UseMyAudit();
 }
 
 app.UseHttpsRedirection();
